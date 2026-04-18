@@ -30,7 +30,7 @@ public class CategoryController {
     }
 
     // GET /categories/create - 카테고리 등록 폼 표시
-    @GetMapping("/categories/create")
+    @GetMapping("/create")
     public String showCreateForm(Model model) {
         model.addAttribute("categoryForm", new CategoryForm());
         return "categoryForm";
