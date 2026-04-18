@@ -21,11 +21,19 @@ public class CategoryController {
 
     public CategoryController(CategoryService categoryService) { this.categoryService = categoryService; }
 
-    @GetMapping // GET /categories
+    // GET /categories - 카테고리 목록 조회
+    @GetMapping
     public String listCategories(Model model) {
         List<Category> categories = categoryService.getAllCategories();
         model.addAttribute("categories", categories);
         return "categoryList";
+    }
+
+    // GET /categories/create - 카테고리 등록 폼 표시
+    @GetMapping("/categories/create")
+    public String showCreateForm(Model model) {
+        model.addAttribute("categoryForm", new CategoryForm());
+        return "categoryForm";
     }
 
 }
